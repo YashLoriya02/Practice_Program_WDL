@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Menu Overlay</title>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    .image-container {
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        margin-top: 2rem;
+    }
+
+    img {
+        animation: zoom 3.5s infinite linear;
+    }
+    
+    @keyframes zoom {
+        to {
+            transform: translate(-1500px);
+        }
+    }
+</style>
+
+<body>
+    <div class="image-container">
+        <img src="./assets/newRocket.png" alt="Image">
+    </div>
+    <div class="image-container">
+        <img src="./assets/newRocket.png" alt="Image">
+    </div>
+</body>
+
+</html>

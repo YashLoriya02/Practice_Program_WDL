@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logged-In User</title>
+</head>
+
+<style>
+    .btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    a {
+        padding: 7px 30px;
+        font-size: 20px;
+        background: none;
+        border: 2px solid black;
+        cursor: pointer;
+        color: black;
+        text-decoration: none;
+    }
+
+    .users {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 2rem;
+    }
+
+    .users table {
+        width: 80%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+
+    .users th,
+    .users td {
+        padding: 8px;
+        border: 1px solid #ddd;
+        text-align: center;
+    }
+
+    .users th {
+        background-color: #f2f2f2;
+        font-weight: bold;
+    }
+
+</style>
+
+<body>
+    <h1 style="text-align: center; font-size: 3rem;">Users</h1>
+    <div class="users">
+        <table>
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Full Name</th>
+                    <th>Email</th>
+                    <th>IsSuperUser</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                <tr>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.first_name }} {{ user.last_name }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.is_superuser }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="btn">
+        <a href="{% url 'logout' %}">Logout</a>
+    </div>
+</body>
+
+</html>

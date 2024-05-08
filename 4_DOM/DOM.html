@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Animation</title>
+    <style>
+        form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-top: 2rem;
+            margin-bottom: 0;
+        }
+
+        input {
+            width: 30vw;
+            margin-top: 3.5rem;
+            border-radius: 10px;
+            border: 2px solid black;
+            padding: .5rem 1.2rem;
+            font-size: 1.5rem;
+        }
+
+        button {
+            padding: 10px 30px;
+            font-size: 1.5rem;
+            background: none;
+            border: 3px solid rgb(61, 61, 61);
+            border-radius: 10px;
+            margin-top: 2rem;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: rgb(61, 61, 61);
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="myBtn">
+        <h1>Hello, <span id="username">User</span></h1>
+        <input type="text" id="inputField" placeholder="Enter Your Name" autocomplete="off">
+        <button>Click</button>
+    </form>
+    <div class="main">
+        <button id="myButton">Click Me!</button>
+    </div>
+    <script>
+        const inputValue = document.getElementById('inputField')
+        const btn = document.getElementById('myBtn')
+        const spanValue = document.getElementById('username')
+
+        btn.addEventListener('submit', (e) => {
+            e.preventDefault()
+            spanValue.innerHTML = inputValue.value
+            inputValue.value = ""
+        })
+
+        document.addEventListener("DOMContentLoaded", function () {
+            var button = document.createElement("button");
+            button.style.margin = "2rem auto"
+            button.textContent = "Dynamically Created Button";
+            button.addEventListener("click", function () {
+                alert("You clicked the dynamically created button!");
+            });
+            document.body.appendChild(button);
+            var existingButton = document.getElementById("myButton");
+            existingButton.addEventListener("click", function () {
+                alert("You clicked the existing button!");
+            });
+        });
+    </script>
+</body>
+
+</html>
