@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      .calculator {
+        max-width: 300px;
+        margin: 50px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 5px;
+      }
+      .calculator input[type="text"] {
+        grid-column: span 4;
+        margin-bottom: 10px;
+        padding: 10px;
+        font-size: 18px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      .calculator button {
+        padding: 10px;
+        font-size: 18px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .calculator button.operator {
+        background-color: #ff9800;
+        color: #fff;
+      }
+      .calculator button.clear {
+        background-color: #f44336;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="calculator">
+      <input type="text" id="display" readonly />
+      <button onclick="appendNumber('7')">7</button>
+      <button onclick="appendNumber('8')">8</button>
+      <button onclick="appendNumber('9')">9</button>
+      <button onclick="setOperator('+')" class="operator">+</button>
+      <button onclick="appendNumber('4')">4</button>
+      <button onclick="appendNumber('5')">5</button>
+      <button onclick="appendNumber('6')">6</button>
+      <button onclick="setOperator('-')" class="operator">-</button>
+      <button onclick="appendNumber('1')">1</button>
+      <button onclick="appendNumber('2')">2</button>
+      <button onclick="appendNumber('3')">3</button>
+      <button onclick="setOperator('*')" class="operator">*</button>
+      <button onclick="appendNumber('0')" style="grid-column: span 2">0</button>
+      <button onclick="clearDisplay()" class="clear">C</button>
+      <button onclick="setOperator('/')" class="operator">/</button>
+      <button onclick="calculateResult()" style="grid-column: span 4">=</button>
+    </div>
+
+    <script>
+      var currentNumber = "";
+      var operator = "";
+      var result = null;
+
+      function appendNumber(number) {
+        currentNumber += number;
+        updateDisplay(currentNumber);
+      }
+
+      function setOperator(op) {
+        operator = op;
+        if (result === null) {
+          result = parseFloat(currentNumber);
+        } else {
+          calculateResult();
+        }
+        currentNumber = "";
+      }
+
+      function calculateResult() {
+        if (operator === "+") {
+          result += parseFloat(currentNumber);
+        } else if (operator === "-") {
+          result -= parseFloat(currentNumber);
+        } else if (operator === "*") {
+          result *= parseFloat(currentNumber);
+        } else if (operator === "/") {
+          result /= parseFloat(currentNumber);
+        }
+        updateDisplay(result);
+        currentNumber = "";
+      }
+
+      function clearDisplay() {
+        currentNumber = "";
+        operator = "";
+        result = null;
+        updateDisplay("");
+      }
+
+      function updateDisplay(value) {
+        document.getElementById("display").value = value;
+      }
+    </script>
+  </body>
+</html>

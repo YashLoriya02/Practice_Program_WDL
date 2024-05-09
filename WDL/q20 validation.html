@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>College Event Registration</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      .container {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      label {
+        display: block;
+        margin-bottom: 5px;
+      }
+      input[type="text"],
+      input[type="email"],
+      select {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      input[type="submit"] {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .error-message {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>College Event Registration</h2>
+      <form id="registration-form" onsubmit="validateForm(event)">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required />
+        <div id="name-error" class="error-message"></div>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+        <div id="email-error" class="error-message"></div>
+
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender" required>
+          <option value="">Select Gender</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
+        </select>
+        <div id="gender-error" class="error-message"></div>
+
+        <input type="submit" value="Register" />
+      </form>
+
+      <div id="registration-details"></div>
+    </div>
+
+    <script>
+      function validateForm(event) {
+        event.preventDefault();
+
+        var name = document.getElementById("name").value.trim();
+        var email = document.getElementById("email").value.trim();
+        var gender = document.getElementById("gender").value;
+
+        var nameError = document.getElementById("name-error");
+        var emailError = document.getElementById("email-error");
+        var genderError = document.getElementById("gender-error");
+
+        var valid = true;
+
+        // Reset error messages
+        nameError.textContent = "";
+        emailError.textContent = "";
+        genderError.textContent = "";
+
+        // Validate name
+        if (name === "") {
+          nameError.textContent = "Name is required";
+          valid = false;
+        }
+
+        // Validate email
+        if (email === "") {
+          emailError.textContent = "Email is required";
+          valid = false;
+        } else if (!isValidEmail(email)) {
+          emailError.textContent = "Invalid email format";
+          valid = false;
+        }
+
+        // Validate gender
+        if (gender === "") {
+          genderError.textContent = "Gender is required";
+          valid = false;
+        }
+
+        // If form is valid, show registration details
+        if (valid) {
+          showRegistrationDetails(name, email, gender);
+        }
+      }
+
+      function isValidEmail(email) {
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+      }
+
+      function showRegistrationDetails(name, email, gender) {
+        var details = `
+    <h3>Registration Details:</h3>
+    <p><strong>Name:</strong> ${name}</p>
+    <p><strong>Email:</strong> ${email}</p>
+    <p><strong>Gender:</strong> ${gender}</p>
+  `;
+        document.getElementById("registration-details").innerHTML = details;
+      }
+    </script>
+  </body>
+</html>

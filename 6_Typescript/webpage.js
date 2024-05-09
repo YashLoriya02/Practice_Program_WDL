@@ -2,7 +2,6 @@ var Example = /** @class */ (function () {
     function Example() {
         this.button = document.createElement("button");
         this.button.textContent = "Click";
-        this.button.style.margin = "auto";
         this.button.addEventListener("click", this.onClick.bind(this));
         document.body.appendChild(this.button);
     }

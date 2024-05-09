@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blogging Platform</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="#">Blogging Platform</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Articles</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Authors</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Article Page -->
+    <section class="container my-5">
+      <div class="row">
+        <div class="col-lg-8">
+          <article>
+            <h1>Article Title</h1>
+            <div class="author">
+              <img
+                src="author.jpg"
+                alt="Author"
+                class="rounded-circle mr-2"
+                style="width: 50px"
+              />
+              <p>Written by <span>Author Name</span></p>
+            </div>
+            <div class="content">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
+                nec dui sapien. Pellentesque ac felis ut elit sollicitudin
+                ultricies. Duis sit amet velit at enim venenatis eleifend.
+              </p>
+              <!-- Add more content as needed -->
+            </div>
+          </article>
+
+          <!-- Comments Section -->
+          <div class="comments mt-4">
+            <h2>Comments</h2>
+            <div class="comment media my-3">
+              <img
+                src="user1.jpg"
+                class="rounded-circle mr-3"
+                style="width: 50px"
+              />
+              <div class="media-body">
+                <h5 class="mt-0">User 1</h5>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              </div>
+            </div>
+            <div class="comment media my-3">
+              <img
+                src="user2.jpg"
+                class="rounded-circle mr-3"
+                style="width: 50px"
+              />
+              <div class="media-body">
+                <h5 class="mt-0">User 2</h5>
+                <p>
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+              </div>
+            </div>
+            <!-- Add more comments as needed -->
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="col-lg-4">
+          <div class="sidebar">
+            <h3>About the Author</h3>
+            <div class="author-profile media">
+              <img
+                src="author.jpg"
+                class="rounded-circle mr-3"
+                style="width: 80px"
+              />
+              <div class="media-body">
+                <h5 class="mt-0">Author Name</h5>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              </div>
+            </div>
+            <!-- Add more author info as needed -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer bg-dark text-light text-center py-3">
+      <div class="container">
+        <p>&copy; 2024 Blogging Platform</p>
+      </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

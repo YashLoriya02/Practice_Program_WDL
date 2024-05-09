@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Real Estate Website</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="#">Real Estate</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Properties</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Property Listings -->
+    <section class="container my-5">
+      <h2 class="text-center mb-4">Property Listings</h2>
+      <div class="row">
+        <!-- Property Cards -->
+        <div class="col-md-4">
+          <div class="card mb-4">
+            <img src="property1.jpg" class="card-img-top" alt="Property 1" />
+            <div class="card-body">
+              <h5 class="card-title">Property 1</h5>
+              <p class="card-text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </p>
+              <button
+                type="button"
+                class="btn btn-primary"
+                data-toggle="modal"
+                data-target="#propertyModal"
+                data-property="1"
+              >
+                View Details
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card mb-4">
+            <img src="property2.jpg" class="card-img-top" alt="Property 2" />
+            <div class="card-body">
+              <h5 class="card-title">Property 2</h5>
+              <p class="card-text">
+                Sed do eiusmod tempor incididunt ut labore et dolore magna
+                aliqua.
+              </p>
+              <button
+                type="button"
+                class="btn btn-primary"
+                data-toggle="modal"
+                data-target="#propertyModal"
+                data-property="2"
+              >
+                View Details
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card mb-4">
+            <img src="property3.jpg" class="card-img-top" alt="Property 3" />
+            <div class="card-body">
+              <h5 class="card-title">Praperty 3</h5>
+              <p class="card-text">
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                laboris nisi ut aliquip ex ea commodo consequat.
+              </p>
+              <button
+                type="button"
+                class="btn btn-primary"
+                data-toggle="modal"
+                data-target="#propertyModal"
+                data-property="3"
+              >
+                View Details
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card mb-4">
+            <img src="property4.jpg" class="card-img-top" alt="Property 4" />
+            <div class="card-body">
+              <h5 class="card-title">Property 4</h5>
+              <p class="card-text">
+                Duis aute irure dolor in reprehenderit in voluptate velit esse
+                cillum dolore eu fugiat nulla pariatur.
+              </p>
+              <button
+                type="button"
+                class="btn btn-primary"
+                data-toggle="modal"
+                data-target="#propertyModal"
+                data-property="4"
+              >
+                View Details
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card mb-4">
+            <img src="property5.jpg" class="card-img-top" alt="Property 5" />
+            <div class="card-body">
+              <h5 class="card-title">Property 5</h5>
+              <p class="card-text">
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa
+                qui officia deserunt mollit anim id est laborum.
+              </p>
+              <button
+                type="button"
+                class="btn btn-primary"
+                data-toggle="modal"
+                data-target="#propertyModal"
+                data-property="5"
+              >
+                View Details
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Property Details Modal -->
+    <div
+      class="modal fade"
+      id="propertyModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="propertyModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="propertyModalLabel">
+              Property Details
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <!-- Property details will be dynamically added here -->
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Search Filter -->
+    <section class="container my-5">
+      <h2 class="text-center mb-4">Search Properties</h2>
+      <div class="row">
+        <div class="col-md-6 offset-md-3">
+          <form id="searchForm">
+            <div class="input-group mb-3">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Search by keyword"
+                id="searchInput"
+              />
+              <div class="input-group-append">
+                <button class="btn btn-primary" type="button" id="searchBtn">
+                  Search
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contract Form -->
+    <section class="container my-5">
+      <h2 class="text-center mb-4">Contract Form</h2>
+      <div class="row">
+        <div class="col-md-6 offset-md-3">
+          <form id="contractForm">
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input type="text" class="form-control" id="name" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" id="email" required />
+            </div>
+            <div class="form-group">
+              <label for="property">Property Name</label>
+              <input type="text" class="form-control" id="property" required />
+            </div>
+            <div class="form-group">
+              <label for="terms">Terms and Conditions</label>
+              <textarea
+                class="form-control"
+                id="terms"
+                rows="4"
+                required
+              ></textarea>
+            </div>
+            <div class="form-group form-check">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                id="agree"
+                required
+              />
+              <label class="form-check-label" for="agree"
+                >I agree to the terms and conditions</label
+              >
+            </div>
+            <button type="submit" class="btn btn-primary">Sign Contract</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer bg-dark text-light text-center py-3">
+      <div class="container">
+        <p>&copy; 2024 Real Estate</p>
+      </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const searchInput = document.getElementById("searchInput");
+        const propertyCards = document.querySelectorAll(".property-card");
+
+        searchInput.addEventListener("input", function () {
+          const searchTerm = searchInput.value.trim().toLowerCase();
+
+          propertyCards.forEach(function (card) {
+            const propertyTitle = card
+              .querySelector(".card-title")
+              .textContent.trim()
+              .toLowerCase();
+            const propertyDescription = card
+              .querySelector(".card-text")
+              .textContent.trim()
+              .toLowerCase();
+
+            if (
+              propertyTitle.includes(searchTerm) ||
+              propertyDescription.includes(searchTerm)
+            ) {
+              card.style.display = "block";
+            } else {
+              card.style.display = "none";
+            }
+          });
+        });
+      });
+    </script> -->
+  </body>
+</html>

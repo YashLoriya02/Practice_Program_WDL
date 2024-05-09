@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Feedback Form</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      h1 {
+        text-align: center;
+        padding-top: 15px;
+      }
+      .container {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      .question {
+        margin-bottom: 20px;
+      }
+      .options label {
+        display: block;
+        margin-bottom: 10px;
+      }
+      .feedback {
+        margin-top: 20px;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Feedback Form</h1>
+    <div class="container">
+      <div class="question">
+        <h2>How satisfied are you with our service?</h2>
+        <div class="options">
+          <label
+            ><input type="radio" name="satisfaction" value="Very satisfied" />
+            Very satisfied</label
+          >
+          <label
+            ><input type="radio" name="satisfaction" value="Satisfied" />
+            Satisfied</label
+          >
+          <label
+            ><input type="radio" name="satisfaction" value="Neutral" />
+            Neutral</label
+          >
+          <label
+            ><input type="radio" name="satisfaction" value="Unsatisfied" />
+            Unsatisfied</label
+          >
+          <label
+            ><input type="radio" name="satisfaction" value="Very unsatisfied" />
+            Very unsatisfied</label
+          >
+        </div>
+      </div>
+      <div class="question">
+        <h2>How likely are you to recommend us to others?</h2>
+        <div class="options">
+          <label
+            ><input type="radio" name="recommend" value="Very likely" /> Very
+            likely</label
+          >
+          <label
+            ><input type="radio" name="recommend" value="Likely" />
+            Likely</label
+          >
+          <label
+            ><input type="radio" name="recommend" value="Neutral" />
+            Neutral</label
+          >
+          <label
+            ><input type="radio" name="recommend" value="Unlikely" />
+            Unlikely</label
+          >
+          <label
+            ><input type="radio" name="recommend" value="Very unlikely" /> Very
+            unlikely</label
+          >
+        </div>
+      </div>
+      <button onclick="submitFeedback()">Submit Feedback</button>
+      <div class="feedback" id="feedback"></div>
+    </div>
+
+    <script>
+      function submitFeedback() {
+        var satisfaction = document.querySelector(
+          'input[name="satisfaction"]:checked'
+        );
+        var recommend = document.querySelector(
+          'input[name="recommend"]:checked'
+        );
+        if (satisfaction && recommend) {
+          var feedback =
+            "Satisfaction: " +
+            satisfaction.value +
+            "<br>Recommendation: " +
+            recommend.value;
+          document.getElementById("feedback").innerHTML = feedback;
+          document.querySelector(".feedback").style.display = "block";
+        } else {
+          alert("Please answer all questions.");
+        }
+      }
+    </script>
+  </body>
+</html>

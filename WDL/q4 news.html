@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>News Website</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="#">News Website</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Politics</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Sports</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Entertainment</a>
+            </li>
+            <!-- Add more categories as needed -->
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input
+              class="form-control mr-sm-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+              Search
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="jumbotron text-center">
+      <div class="container">
+        <h1 class="display-4">Welcome to News Website</h1>
+        <p class="lead">
+          Stay updated with the latest news from around the world.
+        </p>
+      </div>
+    </section>
+
+    <!-- Featured Stories -->
+    <section class="container">
+      <h2 class="text-center mb-4">Featured Stories</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card">
+            <img
+              src="https://via.placeholder.com/300"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">Featured Story 1</h5>
+              <p class="card-text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </p>
+              <a href="#" class="btn btn-primary">Read More</a>
+            </div>
+          </div>
+        </div>
+        <!-- Add more featured stories -->
+      </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="container mt-4">
+      <h2 class="text-center mb-4">Categories</h2>
+      <div class="row">
+        <div class="col-md-4" style="padding-top: 10px">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Politics</h5>
+              <p class="card-text">Latest news and updates on politics.</p>
+              <a href="#" class="btn btn-primary">Explore</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" style="padding-top: 10px">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Sports</h5>
+              <p class="card-text">Get the latest sports news and updates.</p>
+              <a href="#" class="btn btn-primary">Explore</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" style="padding-top: 10px">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Entertainment</h5>
+              <p class="card-text">Entertainment news and celebrity gossip.</p>
+              <a href="#" class="btn btn-primary">Explore</a>
+            </div>
+          </div>
+        </div>
+        <!-- Add more categories as needed -->
+      </div>
+    </section>
+
+    <!-- Article Previews -->
+    <section class="container">
+      <h2 class="text-center mb-4" style="padding-top: 30px">Latest News</h2>
+      <div class="row" id="newsContainer">
+        <!-- News cards will be dynamically added here -->
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer mt-auto py-3 bg-dark">
+      <div class="container text-center">
+        <span class="text-muted">Copyright &copy; 2024 News Website</span>
+      </div>
+    </footer>
+
+    <script>
+      // Sample data for news articles
+      const newsData = [
+        {
+          title: "Article 1",
+          content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        },
+        {
+          title: "Article 2",
+          content:
+            "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        },
+        {
+          title: "Article 3",
+          content:
+            "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        },
+        // Add more news articles as needed
+      ];
+
+      // Function to display news articles
+      function displayNews(articles) {
+        const newsContainer = document.getElementById("newsContainer");
+        newsContainer.innerHTML = ""; // Clear previous content
+
+        articles.forEach((article) => {
+          const card = document.createElement("div");
+          card.classList.add("col-md-4");
+          card.innerHTML = `
+              <div class="card mb-4">
+                <div class="card-body">
+                  <h5 class="card-title">${article.title}</h5>
+                  <p class="card-text">${article.content}</p>
+                  <a href="#" class="btn btn-primary">Read More</a>
+                </div>
+              </div>
+            `;
+          newsContainer.appendChild(card);
+        });
+      }
+
+      // Initial display of news articles
+      displayNews(newsData);
+
+      // Search functionality
+      document
+        .querySelector("form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          const searchTerm = event.target
+            .querySelector("input")
+            .value.toLowerCase();
+          const filteredNews = newsData.filter((article) =>
+            article.title.toLowerCase().includes(searchTerm)
+          );
+          displayNews(filteredNews);
+        });
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

@@ -20,4 +20,3 @@ class Example {
 window.addEventListener("load", () => {
     new Example();
 });
-

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Website</title>
+    <style>
+      /* Reset styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .header {
+        background-color: #333;
+        color: #fff;
+        padding: 20px 0;
+        text-align: center;
+      }
+
+      .header h1 {
+        font-size: 36px;
+      }
+
+      nav ul {
+        list-style: none;
+      }
+
+      nav ul li {
+        display: inline;
+        margin-right: 20px;
+        list-style: none;
+      }
+
+      nav ul li a {
+        color: #fff;
+        text-decoration: none;
+      }
+
+      .schedule,
+      .speakers,
+      .registration,
+      .location {
+        padding: 50px 0;
+        text-align: center;
+      }
+
+      .schedule h2,
+      .speakers h2,
+      .registration h2,
+      .location h2 {
+        margin-bottom: 30px;
+      }
+
+      .schedule .event-item,
+      .speakers .speaker {
+        margin-bottom: 30px;
+      }
+
+      .speakers .speaker img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        margin-bottom: 10px;
+      }
+
+      .btn-primary {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      .btn-primary:hover {
+        background-color: #0056b3;
+      }
+
+      .footer {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 20px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="container">
+        <h1>Event Name</h1>
+        <nav>
+          <ul>
+            <li><a href="#schedule">Schedule</a></li>
+            <li><a href="#speakers">Speakers</a></li>
+            <li><a href="#registration">Registration</a></li>
+            <li><a href="#location">Location</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Schedule Section -->
+    <section id="schedule" class="schedule">
+      <div class="container">
+        <h2>Event Schedule</h2>
+        <div class="event-item">
+          <h3>Day 1</h3>
+          <ul>
+            <li>Opening Ceremony - 9:00 AM</li>
+            <li>Keynote Address - 10:00 AM</li>
+            <li>Panel Discussion - 11:00 AM</li>
+            <!-- Add more schedule items as needed -->
+          </ul>
+        </div>
+        <div class="event-item">
+          <h3>Day 2</h3>
+          <ul>
+            <li>Workshop Session 1 - 9:00 AM</li>
+            <li>Networking Lunch - 12:00 PM</li>
+            <li>Workshop Session 2 - 2:00 PM</li>
+            <!-- Add more schedule items as needed -->
+          </ul>
+        </div>
+        <!-- Add more days and schedule items as needed -->
+      </div>
+    </section>
+
+    <!-- Speakers Section -->
+    <section id="speakers" class="speakers">
+      <div class="container">
+        <h2>Speakers</h2>
+        <div class="speaker">
+          <img src="speaker1.jpg" alt="Speaker 1" />
+          <h3>John Doe</h3>
+          <p>CEO, Company XYZ</p>
+        </div>
+        <div class="speaker">
+          <img src="speaker2.jpg" alt="Speaker 2" />
+          <h3>Jane Smith</h3>
+          <p>Founder, ABC Organization</p>
+        </div>
+        <!-- Add more speakers as needed -->
+      </div>
+    </section>
+
+    <!-- Registration Section -->
+    <section id="registration" class="registration">
+      <div class="container">
+        <h2>Registration</h2>
+        <p>Register for the event by filling out the form below:</p>
+        <form id="registrationForm">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              class="form-control"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="email">Your Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="form-control"
+              required
+            />
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Location Section -->
+    <section id="location" class="location">
+      <div class="container">
+        <h2>Location</h2>
+        <p>The event will be held at:</p>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3865.044476856799!2d-122.08385668564088!3d37.38605127614896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fb7dd53a67079%3A0xe2c41a8f11227fa4!2sMoscone+Center!5e0!3m2!1sen!2sus!4v1555501708888!5m2!1sen!2sus"
+          width="600"
+          height="450"
+          frameborder="0"
+          style="border: 0"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2024 Event Name</p>
+      </div>
+    </footer>
+  </body>
+</html>
