@@ -10,6 +10,7 @@
             width: 70%;
             border-collapse: collapse;
             margin: 0 auto;
+            margin-top: 4rem;
         }
 
         th,
@@ -29,11 +30,69 @@
         th {
             background-color: #f2f2f2;
         }
+
+        button {
+            padding: 10px 25px;
+            background: red;
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1.25rem;
+            border: 2px solid red;
+        }
+        
+        button:hover {
+            background: none;
+            /* border: 2px solid red; */
+            color: red;
+        }
+
+        .header{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 2rem;
+            margin: 0;
+        }
+
+        a{
+            font-size: 1.5rem;
+            text-decoration: none;
+            border: 2px solid black;
+            padding: .5rem 1.5rem;
+            border-radius: 10px;
+            background-color: rgb(44, 44, 44);
+            color: white;
+        }
+        
+        a:hover{
+            background: none;
+            color: black;
+        }
+
+        h1{
+            margin: 0;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+
     </style>
 </head>
 
+{% if messages %}
+    {% for message in messages %}
+        {% if message.tags %}
+            <script>alert("{{message}}")</script>
+        {% endif %}
+    {% endfor %}
+{% endif %}
+
 <body>
-    <h1 style="text-align: center; font-size: 2.5rem; margin-top: 3rem; margin-bottom: 3rem;">Students Record</h1>
+    <div class="header">
+        <h1 style="font-size: 2.5rem;">Students</h1>
+        <a href="create/">Create</a>
+    </div>
+    <hr>
     <table>
         <thead>
             <tr>
@@ -41,6 +100,7 @@
                 <th>Sap</th>
                 <th>Age</th>
                 <th>Grade</th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody>
@@ -50,6 +110,14 @@
                 <td>{{ student.sap }}</td>
                 <td>{{ student.age }}</td>
                 <td>{{ student.grade }}</td>
+
+                <td>
+                    <form method="post" action="{% url 'delete' student.id %}">
+                        {% csrf_token %}
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+
             </tr>
             {% endfor %}
         </tbody>
