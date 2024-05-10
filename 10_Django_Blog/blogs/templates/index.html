@@ -65,7 +65,29 @@
         display: flex;
         justify-content: space-between ;
     }
+
+    button {
+        padding: 7px 15px;
+        background: red;
+        color: white;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 1.25rem;
+        border: 2px solid red;
+    }
+    
+    button:hover {
+        background: none;
+        color: red;
+    }
+
 </style>
+
+{% if messages %}
+    {% for message in messages %}
+            <script>alert("{{message}}")</script>
+    {% endfor %}
+{% endif %}
 
 <body>
     <div class="header">
@@ -88,6 +110,10 @@
                 <h4>{{blog.desc}}</h4>
                 <h4 style="padding-right: 2rem;">{{blog.created_date}}</h4>
             </div>
+            <form method="post" action="{% url 'delete' blog.id %}">
+                {% csrf_token %}
+                <button type="submit">Delete</button>
+            </form>
         </div>
         {% endfor %}
     </div>

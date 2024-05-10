@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
 from . import models
 from django.contrib import messages
 from datetime import datetime
@@ -23,5 +23,12 @@ def create(request):
         new_blog = models.Blogs(title=title, category=category, desc=desc, created_date=combined_datetime)
         new_blog.save()
 
-        messages.success(request, "Blog is created successfully.")
+        messages.success(request, "Blog created successfully.")
     return render (request, "create.html")
+
+def delete_blog(request, pk):
+    student = get_object_or_404(models.Blogs, pk=pk)
+    if request.method == 'POST':
+        student.delete()
+        messages.success(request, "Blog Deleted Successfully.")
+        return redirect('/')
