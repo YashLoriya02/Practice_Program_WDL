@@ -1,5 +1,7 @@
-from django.shortcuts import render
 from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import authenticate, login, logout
+from django.shortcuts import render, redirect
 
 def home(request):
     return render(request, 'home_logout.html')
@@ -25,10 +27,6 @@ def home_login(request):
     if request.user.is_anonymous:
         return redirect("/login")
     return render(request, 'home_login.html', params)
-
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth import authenticate, login, logout
-from django.shortcuts import render, redirect
 
 def register(request):
     if request.method == 'POST':

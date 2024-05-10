@@ -44,14 +44,13 @@
         .error-message {
             color: red;
             margin: 0;
-            /* margin-top: 0.5rem; */
         }
     </style>
 </head>
 
 <body>
     <h2 style="text-align: center; margin-top: 1rem; margin-bottom: 0; font-size: 3rem;">Registration Form</h2>
-    <form onsubmit="return submitForm(event)">
+    <form id="main_form">
         <label for="firstName">First Name:</label>
         <input type="text" id="firstName" name="firstName">
 
@@ -162,25 +161,11 @@
         }
 
         function isValidEmail(email) {
-            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+            return /^[^\s]+@[^\s]+\.(com)$/.test(email);
         }
 
         function isValidMobileNumber(mobileNumber) {
             return /^\d{10}$/.test(mobileNumber);
-        }
-
-        function checkValidity() {
-            var isValid = true;
-
-            var inputFields = document.querySelectorAll("input, textarea");
-            inputFields.forEach(function (inputField) {
-                if (!inputField.checkValidity()) {
-                    isValid = false;
-                    inputField.style.border = "2px solid black"
-                }
-            });
-
-            return isValid;
         }
 
         function showErrorMessage(message, inputId) {
@@ -195,14 +180,15 @@
 
         function removeErrorMessages() {
             var errorMessages = document.querySelectorAll(".error-message");
-            errorMessages.forEach(function (errorMessage) {
+            errorMessages.forEach((errorMessage) => {
                 errorMessage.remove();
             });
         }
 
-        function submitForm(e) {
-            e.preventDefault();
-            if (checkValidity() && validateForm()) {
+        const main_form = document.getElementById('main_form')
+
+        const submitForm = () => {
+            if (validateForm()) {
                 alert("Form Submitted Successfully");
                 document.getElementById("firstName").value = "";
                 document.getElementById("lastName").value = "";
@@ -212,6 +198,12 @@
                 document.getElementById("address").value = "";
             }
         }
+
+        main_form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            submitForm()
+        })
+        
     </script>
 </body>
 
