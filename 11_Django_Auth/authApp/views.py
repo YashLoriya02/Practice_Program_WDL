@@ -1,7 +1,8 @@
-from django.contrib.auth.models import User
-from django.contrib.auth.forms import UserCreationForm
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
-from django.shortcuts import render, redirect
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 
 def home(request):
     return render(request, 'home_logout.html')
@@ -22,10 +23,9 @@ def home_login(request):
         }
         users_list.append(selected_user)
 
-    print(users_list)
     params = {'users': users_list}
-    if request.user.is_anonymous:
-        return redirect("/login")
+    # if request.user.is_anonymous:
+    #     return redirect("/login")
     return render(request, 'home_login.html', params)
 
 def register(request):
@@ -53,3 +53,10 @@ def user_login(request):
 def user_logout(request):
     logout(request)
     return redirect('/')
+
+def delete_user(request, pk):
+    user = get_object_or_404(User, pk=pk)
+    if request.method == 'POST':
+        user.delete()
+        messages.success(request, "User Deleted Successfully.")
+        return redirect('home_login')
